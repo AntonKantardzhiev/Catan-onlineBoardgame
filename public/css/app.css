@@ -131,6 +131,36 @@ nav ul li {
     color: #6c0c08;
 }
 
+/* HEXAGON GRID */
+#hexagonGrid{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 2% auto;
+    overflow: hidden;
+    font-size: 15px;
+    list-style-type: none;
+}
+
+.hex {
+    position: relative;
+    width: 220px;
+    height: 255.21px;
+    margin: 86.60px 0;
+    background: url(/assets/forest.png);
+}
+
+.hex img {
+    left: -100%;
+    right: -100%;
+    width: auto;
+    height: 300px;
+    margin: 0 auto;
+}
+
+
+/* HEXAGON GRID END */
+
 .copyright {
     position: fixed;
     bottom: 0;

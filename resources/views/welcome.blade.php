@@ -32,17 +32,26 @@
     </ul>
 </aside>
 
-<div class="lobby">
-    <form class="form">
-        <div class="form-group">
-            <label class="label" for="playerName">What's your name?</label>
-            <input type="text" class="lobbyForm" placeholder="Write your playername here">
-            <button id="enter" type="submit" class="btn btn-primary">Enter</button>
-        </div>
-    </form>
-</div>
+{{--<div class="lobby">--}}
+{{--    <form class="form">--}}
+{{--        <div class="form-group">--}}
+{{--            <label class="label" for="playerName">What's your name?</label>--}}
+{{--            <input type="text" class="lobbyForm" placeholder="Write your playername here">--}}
+{{--            <button id="enter" type="submit" class="btn btn-primary">Enter</button>--}}
+{{--        </div>--}}
+{{--    </form>--}}
+{{--</div>--}}
 
 
+<ul id="hexagonGrid">
+
+    <li class="hex"></li>
+    <li class="hex"></li>
+    <li class="hex"></li>
+    <li class="hex"></li>
+    <li class="hex"></li>
+
+</ul>
 <div class="copyright mx-auto text-center">
     copyright CATAN BOARDGAME
 </div>
