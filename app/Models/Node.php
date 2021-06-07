@@ -13,11 +13,6 @@ class Node
     private Tile $tile2;
     private Tile $tile3;
 
-    public function __construct(int $x, int $y)
-    {
-        $this->x = $x;
-        $this->y = $y;
-    }
 
     /** @return Tile[] */
     public function getTiles() : array
@@ -39,7 +34,7 @@ class Node
         return $this->y;
     }
 
-    public function findEdges(Map $map): void
+    public function findNeighbours(Map $map): void
     {
         $nodes = $map->getNodesByHashTable();
 

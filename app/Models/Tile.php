@@ -6,29 +6,19 @@ namespace App\Models;
 
 class Tile
 {
-    private Token $number;
 
     /** @var Node[] */
     private array $nodes;
-
+    private Token $number;
     private int $x;
     private int $y;
     private int $type;
 
-    public function __construct(int $x, int $y,int $type, Token $number, Node $node1, Node $node2, Node $node3, Node $node4, Node $node5, Node $node6) //new tile( 0 ,0 , 5, node,x6)
+
+    public function __construct(int $x, int $y) //--> eventually new tile( 0 ,0 , type5,token, node,x6)
     {
         $this->x = $x;
         $this->y = $y;
-        $this->type= $type;
-        $this->number = $number;
-        $this->nodes = [
-            $node1,
-            $node2,
-            $node3,
-            $node4,
-            $node5,
-            $node6,
-        ];
     }
 
     public function getNumber(): Token
@@ -37,7 +27,7 @@ class Tile
     }
 
     /** @return Node[] */
-    public function getNodes() : array
+    public function getNodes(): array
     {
         return $this->nodes;
     }
@@ -52,20 +42,30 @@ class Tile
         return $this->y;
     }
 
+    public function getType(): int
+    {
+        return $this->type;
+    }
+
+    public function setType(int $type): void
+    {
+        $this->type = $type;
+    }
+
     public function findEdges(Map $map): array
     {
         $hashtable = $map->getTilesByHashTable();
 
         $doubleWidthCoordinates = [ // [x , y]
-            [+2,  0], [+1, -1], [-1, -1],
-            [-2,  0], [-1, +1], [+1, +1],
+            [+2, 0], [+1, -1], [-1, -1],
+            [-2, 0], [-1, +1], [+1, +1],
         ];
 
         $tiles = [];
 
-        foreach($doubleWidthCoordinates AS $coord) {
-            list($y, $x) = $coord;
-            if(isset($hashtable[$this->getX() + $x][$this->getY() + $y])) {
+        foreach ($doubleWidthCoordinates as $coord) {
+            [$y, $x] = $coord;
+            if (isset($hashtable[$this->getX() + $x][$this->getY() + $y])) {
                 $tiles[] = $hashtable[$this->getX() + $x][$this->getY() + $y];
             }
         }

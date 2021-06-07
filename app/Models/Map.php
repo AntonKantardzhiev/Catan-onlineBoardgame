@@ -15,6 +15,18 @@ class Map
     private array $nodesHashTable = [];//@todo Not super happy about exposing this
     private array $tilesHashTable = [];//@todo Not super happy about exposing this
 
+    /**
+     * Map constructor.
+     * @param Node[] $nodes
+     * @param Tile[] $tiles
+     */
+    public function __construct(array $nodes, array $tiles)
+    {
+        $this->nodes = $nodes;
+        $this->tiles = $tiles;
+    }
+
+
     public function getNodes(): array
     {
         return $this->nodes;
