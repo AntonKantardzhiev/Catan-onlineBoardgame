@@ -43,15 +43,16 @@
 {{--</div>--}}
 
 
-<ul id="hexagonGrid">
+<div id="hexagonGrid">
 
-    <li class="hex"></li>
-    <li class="hex"></li>
-    <li class="hex"></li>
-    <li class="hex"></li>
-    <li class="hex"></li>
+    <div class="hex forest"></div>
+    <div class="hex hills"></div>
+    <div class="hex field"></div>
+    <div class="hex miningField"></div>
+    <div class="hex grassland"></div>
 
-</ul>
+</div>
+
 <div class="copyright mx-auto text-center">
     copyright CATAN BOARDGAME
 </div>

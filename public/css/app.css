@@ -135,7 +135,7 @@ nav ul li {
 #hexagonGrid{
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    width: 77%;
     margin: 2% auto;
     overflow: hidden;
     font-size: 15px;
@@ -147,8 +147,29 @@ nav ul li {
     width: 220px;
     height: 255.21px;
     margin: 86.60px 0;
-    background: url(/assets/forest.png);
 }
+
+.forest {
+    background: url("/assets/wood.png");
+}
+
+.grassland {
+    background: url("/assets/wool.png");
+}
+
+.hills{
+    background: url("/assets/brick.png");
+}
+
+.miningField {
+    background: url("/assets/ore.png");
+}
+
+.field {
+    background: url("/assets/wheat.png");
+}
+
+
 
 .hex img {
     left: -100%;

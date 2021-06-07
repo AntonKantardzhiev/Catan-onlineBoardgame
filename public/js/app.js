@@ -8,6 +8,7 @@ let form = document.querySelector('form');
 
 
 
+
 popupMenuButton.addEventListener('click', () =>{
     if (sidebarToggle === false){
         sidebarMenu.style.visibility = 'visible';
@@ -23,3 +24,4 @@ popupMenuButton.addEventListener('click', () =>{
 enterPlayerName.addEventListener('click', () =>{
         form.classList.toggle('fade');
 });
+
