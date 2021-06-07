@@ -92,12 +92,59 @@ nav ul li {
 .form div {
     margin-left: 15px;
     opacity: 1;
-    transition: opacity 30s ease;
+}
+.fade {
+    opacity: 0;
+    animation: fadeOut 0.8s;
+    pointer-events: none;
 }
 
-.form.fade {
+@keyframes fadeOut{
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.playerdetails {
+    margin-left: 15px;
+    color: #fff1b7;
     opacity: 0;
 }
+
+.myPlayerInfo {
+    top: -112px;
+    position: relative;
+}
+
+.otherPlayers {
+    float: right;
+    margin-right: 15px;
+}
+
+.visible {
+    color: #fff1b7;
+    opacity: 1;
+    animation: fadeIn 7s;
+}
+
+.avatar {
+    height: 50px;
+    width: 50px;
+}
+
+
+@keyframes fadeIn{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 
 .lobbyForm {
     border: black solid 1px !important;
@@ -131,15 +178,39 @@ nav ul li {
     color: #6c0c08;
 }
 
+.btn-start {
+    top: 84%;
+    display: block;
+    background-color: #ec6f11 !important;
+    border-color: black !important;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+    width: 8%;
+}
+
+
 /* HEXAGON GRID */
-#hexagonGrid{
-    display: flex;
+.hexagonGrid{
     flex-wrap: wrap;
     width: 77%;
     margin: 2% auto;
     overflow: hidden;
     font-size: 15px;
     list-style-type: none;
+    opacity: 0;
 }
 
 .hex {
