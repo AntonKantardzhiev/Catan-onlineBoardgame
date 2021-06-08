@@ -13,10 +13,9 @@ class MapGenerator
     public const RADIUS = 2;//does not include water tiles. for nodes which require 3 tiles this is needed however... water Tiles?
     public const NODE_COUNT = 54;
 
-    public function createRandomTiles()
+    public function createRandomTiles(): Map
     {
         shuffle($this->types);
-        var_dump($this->types);
 
         for ($i = 0; $i <= self::RADIUS; $i++) {
 
@@ -37,17 +36,18 @@ class MapGenerator
         $counter = 0;
         /** @var Tile $tile */
         foreach ($this->tiles as $tile) {
-            $counter++;
             $tile->setType($this->types[$counter]);
+            $counter++;
         }
+        return new Map($this->tiles);
     }
 
     //public function createNodes()
-    //{
-    //    foreach ($this->tiles as $tile) {
-    //
-    //
-    //    }
-    //    echo count($this->nodes);
-    //}
+    //    //{
+    //    //    foreach ($this->tiles as $tile) {
+    //    //
+    //    //
+    //    //    }
+    //    //    echo count($this->nodes);
+    //    //}
 }
