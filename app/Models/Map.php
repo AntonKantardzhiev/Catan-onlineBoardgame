@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 
+use JetBrains\PhpStorm\Pure;
+
 class Map
 {
     /** @var Node[] */
@@ -70,5 +72,41 @@ class Map
             }
         }
         return $tiles;
+    }
+
+    /**
+     * returns an array of tile objects that are a specified distance away on the grid from a specific tile.
+     * in effect, this would return a ring of tile objects on the board
+     * @param Tile $origin
+     * @param int $radius
+     * @return Tile[]
+     */
+    #[Pure] public function getTileRingInRadius(Tile $origin, int $radius): array
+    {
+        $tempTiles = [];
+        foreach($this->tiles AS $tile)
+        {
+            if($origin->getDistanceFrom($tile) === $radius)
+            {
+                $tempTiles[] = $tile;
+            }
+        }
+        return $tempTiles;
+    }
+
+    /**
+     * gets all tiles within a radius range of the origin tile using a spiral method.
+     * @param Tile $origin
+     * @param int $radius
+     * @return Tile[]
+     */
+    #[Pure] public function getTilesWithinRadius(Tile $origin, int $radius): array
+    {
+        $tempTiles = [$origin];
+        for($i = 1; $i <= $radius; $i++)
+        {
+            $tempTiles[] = $this->getTileRingInRadius($origin, $i);
+        }
+        return $tempTiles;
     }
 }
