@@ -43,11 +43,11 @@ class MapGenerator
     }
 
     //public function createNodes()
-    //{
-    //    foreach ($this->tiles as $tile) {
-    //
-    //
-    //    }
-    //    echo count($this->nodes);
-    //}
+    //    //{
+    //    //    foreach ($this->tiles as $tile) {
+    //    //
+    //    //
+    //    //    }
+    //    //    echo count($this->nodes);
+    //    //}
 }
