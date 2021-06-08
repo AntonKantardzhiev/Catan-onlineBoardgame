@@ -17,6 +17,7 @@ class MapGenerator
     {
         shuffle($this->types);
         var_dump($this->types);
+
         for ($i = 0; $i <= self::RADIUS; $i++) {
 
             $steps = self::RADIUS - ceil($i / 2);
@@ -51,11 +52,8 @@ class MapGenerator
 
     public function assignNodeToTile(array $nodes, array $tiles)
     {
-        $i = 0;
         foreach ($tiles as $tile) {
-            $i++;
-            $i++;
-            $tile->setNodes($nodes[$i], $nodes[$i + 1],$nodes[$i + 2],$nodes[$i + 3],$nodes[$i + 4],$nodes[$i + 5]);
+            $tile->setNodes();
 
         }
     }
