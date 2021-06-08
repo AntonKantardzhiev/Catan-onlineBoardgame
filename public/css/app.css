@@ -212,27 +212,30 @@ nav ul li {
     position: relative;
     width: 33vh;
     height: 39vh;
+
+    margin: 86.60px 0;
 }
 
-.forest {
-    background: url("/assets/wood.png") no-repeat no-repeat;
-}
 
-.grassland {
-    background: url("/assets/wool.png") no-repeat no-repeat;
-}
+/*.forest {*/
+/*    background: url("/assets/wood.png") no-repeat no-repeat;*/
+/*}*/
 
-.hills{
-    background: url("/assets/brick.png") no-repeat no-repeat;
-}
+/*.grassland {*/
+/*    background: url("/assets/wool.png") no-repeat no-repeat;*/
+/*}*/
 
-.miningField {
-    background: url("/assets/ore.png") no-repeat no-repeat;
-}
+/*.hills{*/
+/*    background: url("/assets/brick.png") no-repeat no-repeat;*/
+/*}*/
 
-.field {
-    background: url("/assets/wheat.png") no-repeat no-repeat;
-}
+/*.miningField {*/
+/*    background: url("/assets/ore.png") no-repeat no-repeat;*/
+/*}*/
+
+/*.field {*/
+/*    background: url("/assets/wheat.png") no-repeat no-repeat;*/
+/*}*/
 
 
 
