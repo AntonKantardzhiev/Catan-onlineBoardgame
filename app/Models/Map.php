@@ -20,9 +20,9 @@ class Map
      * @param Node[] $nodes
      * @param Tile[] $tiles
      */
-    public function __construct(array $nodes, array $tiles)
+    public function __construct(array $tiles)
     {
-        $this->nodes = $nodes;
+        //$this->nodes = $nodes;
         $this->tiles = $tiles;
     }
 
