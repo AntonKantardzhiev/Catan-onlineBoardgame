@@ -15,7 +15,7 @@ class Tile
     private int $type;
 
 
-    public function __construct(int $x, int $y) //--> eventually new tile( 0 ,0 , type5,token, node,x6)
+    public function __construct(int $x, int $y) //--> eventually new tile( 0 ,0 ,token, node,x6)
     {
         $this->x = $x;
         $this->y = $y;
@@ -52,7 +52,7 @@ class Tile
         $this->type = $type;
     }
 
-    public function findEdges(Map $map): array
+    public function findNeighbours(Map $map): array
     {
         $hashtable = $map->getTilesByHashTable();
 
@@ -60,7 +60,6 @@ class Tile
             [+2, 0], [+1, -1], [-1, -1],
             [-2, 0], [-1, +1], [+1, +1],
         ];
-
         $tiles = [];
 
         foreach ($doubleWidthCoordinates as $coord) {
@@ -69,7 +68,25 @@ class Tile
                 $tiles[] = $hashtable[$this->getX() + $x][$this->getY() + $y];
             }
         }
-
         return $tiles;
+    }
+
+    public function getCornerCoordinates(): array
+    {
+        $doubleWidthCornerCoordinates = [
+            [+1, .5], [-1, .5], [0, .5],
+            [+1, -.5], [-1, -.5], [0, -.5]
+        ];
+        $corners = [];
+        foreach ($doubleWidthCornerCoordinates as $coord)
+        {
+            [$y, $x] = $coord;
+            $corner[] = [$this->getX() +$x ,$this->getY() +$y];
+        }
+        return $corner;
+    }
+    public function __toString(): string
+    {
+        return $this->y . ", ". $this->x;
     }
 }

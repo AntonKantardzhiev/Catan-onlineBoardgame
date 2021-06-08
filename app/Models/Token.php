@@ -6,7 +6,7 @@ namespace App\Models;
 
 class Token
 {
-    private array $numbers= [  // if type = desert { continue } ==> skip deze tile.
+    private array $numbers= [  // if type = 0 { continue } ==> skip deze tile.
         'A' => 5,
         'B' => 2,
         'C' => 6,

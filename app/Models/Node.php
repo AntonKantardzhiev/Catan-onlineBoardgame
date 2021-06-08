@@ -13,7 +13,6 @@ class Node
     private Tile $tile2;
     private Tile $tile3;
 
-
     /** @return Tile[] */
     public function getTiles() : array
     {
@@ -37,6 +36,10 @@ class Node
     public function findNeighbours(Map $map): void
     {
         $nodes = $map->getNodesByHashTable();
+    }
 
+    public function __toString(): string
+    {
+        return  $this->x .", ". $this->y;
     }
 }

@@ -25,7 +25,7 @@ class MapGenerator
             for ($j = 0; $j <= $steps; $j++) {
 
                 $this->tiles[] = new Tile($i, $j * 2 + ($i % 2));
-                $this->tiles[] = new Tile($i, -1 * $j * 2 + ($i % 2));
+                $this->tiles[] = new Tile($i, -1 * ($j * 2 + ($i % 2)));
                 $this->tiles[] = new Tile(-$i, $j * 2 + ($i % 2));
                 $this->tiles[] = new Tile(-$i, -1 * ($j * 2 + ($i % 2)));
             }
@@ -42,28 +42,12 @@ class MapGenerator
         }
     }
 
-    public function createNodes()
-    {
-        for ($i = 0; $i < self::NODE_COUNT; $i++) {
-            $this->nodes[] = new Node();
-        }
-        echo count($this->nodes);
-    }
-
-    public function assignNodeToTile(array $nodes, array $tiles)
-    {
-        foreach ($tiles as $tile) {
-            $tile->setNodes();
-
-        }
-    }
-
-    public function run(): void
-    {
-        $this->createRandomTiles();
-        $this->createNodes();
-    }
+    //public function createNodes()
+    //{
+    //    foreach ($this->tiles as $tile) {
+    //
+    //
+    //    }
+    //    echo count($this->nodes);
+    //}
 }
-
-$m = new MapGenerator();
-$m->run();
