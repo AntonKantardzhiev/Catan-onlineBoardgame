@@ -4,24 +4,48 @@ let sidebarMenu = document.getElementById('sidebar');
 let popupMenuButton = document.getElementById('menuPopup');
 
 let enterPlayerName = document.getElementById('enter');
-let form = document.querySelector('.fade');
-let btn = document.querySelector(".fadeBtn");
+let form = document.querySelector('form');
+
+let playerNames = document.querySelector('.playerdetails');
+
+let avatar = document.querySelector('.avatar')
+
+let startGame = document.getElementById('start');
+let lobby = document.querySelector('.lobby');
+let hexagons = document.querySelector('.hexagonGrid');
+// let hex = document.querySelector('.hex');
 
 
-
-
-popupMenuButton.addEventListener('click', () =>{
-    if (sidebarToggle === false){
+popupMenuButton.addEventListener('click', () => {
+    if (sidebarToggle === false) {
         sidebarMenu.style.visibility = 'visible';
         sidebarMenu.style.width = '200px';
-    }
-    else if (sidebarToggle === true){
+    } else {
         sidebarMenu.style.visibility = 'hidden';
-        sidebarMenu.style.width = '0px';
+        sidebarMenu.style.width = '-200px';
     }
 });
 
-btn.addEventListener("click",function(){
-    form.classList.add("elementToFadeOut");
-    setTimeout(()=>{form.classList.remove("elementToFadeOut");},4000);
+hexagons.style.display = 'none';
+avatar.style.display = 'none';
+
+enterPlayerName.addEventListener('click', () => {
+    form.classList.toggle('fade');
+    avatar.style.display = 'block';
+    playerNames.classList.toggle('visible');
 });
+
+startGame.addEventListener('click', () => {
+    lobby.classList.toggle('fade');
+    hexagons.style.display = 'flex';
+    hexagons.classList.toggle('visible');
+});
+
+
+
+
+
+
+
+
+

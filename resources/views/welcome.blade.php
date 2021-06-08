@@ -34,34 +34,106 @@
 
 <div class="lobby">
     <form class="form">
-        <div class="form-group fade">
+        <div class="form-group">
             <label class="label" for="playerName">What's your name?</label>
             <input type="text" class="lobbyForm" placeholder="Write your playername here">
-            <button id="enter" type="submit" class="fadeBtn btn btn-primary">Enter</button>
+            <button id="enter" type="button" class="btn btn-primary">Enter</button>
         </div>
     </form>
+
+    <div class="playerdetails">
+        <div class="myPlayerInfo">
+            <h3 class="currentPlayerName">Playername here</h3>
+            <img class="avatar" src="/assets/avatar.png" alt="avatar">
+        </div>
+        <div class="otherPlayers">
+            <h3 class="otherPlayerName">playername</h3>
+            <img class="avatar" src="/assets/avatar.png" alt="avatar">
+        </div>
 </div>
-{{--<div class="lobby">--}}
-{{--    <form class="form" >--}}
-{{--        <div class="form-group" id="fading">--}}
-{{--            <label class="label" for="playerName">What's your name?</label>--}}
-{{--            <input type="text" class="lobbyForm" placeholder="Write your playername here">--}}
-{{--            <button id="enter" type="submit" class="btn btn-primary">Enter</button>--}}
-{{--        </div>--}}
-{{--    </form>--}}
-{{--</div>--}}
+    <button id="start" type="button" class="btn-start btn-primary">Start game</button>
+</div>
+
+
+<div class="hexagonGrid">
+    <div class="firstRow">
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+    </div>
+
+    <div class="secondRow">
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+    </div>
+    <div class="thirdRow">
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+    </div>
+    <div class="fourthRow">
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+    </div>
+    <div class="fifthRow">
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+    </div>
+    <div class="sixthRow">
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+    </div>
+    <div class="seventhRow">
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+    </div>
+
+</div>
+
+{{--        <div class="hex forest"></div>--}}
+{{--        <div class="hex hills"></div>--}}
+{{--        <div class="hex field"></div>--}}
+{{--        <div class="hex miningField"></div>--}}
+{{--        <div class="hex grassland"></div>--}}
+{{--        <div class="hex forest"></div>--}}
+{{--        <div class="hex hills"></div>--}}
 
 
 
-{{--<div id="hexagonGrid">--}}
-
-{{--    <div class="hex forest"></div>--}}
-{{--    <div class="hex hills"></div>--}}
-{{--    <div class="hex field"></div>--}}
-{{--    <div class="hex miningField"></div>--}}
-{{--    <div class="hex grassland"></div>--}}
-
-{{--</div>--}}
+{{--we can try to make ol with li instead of divs as well.--}}
 
 <div class="copyright mx-auto text-center">
     copyright CATAN BOARDGAME

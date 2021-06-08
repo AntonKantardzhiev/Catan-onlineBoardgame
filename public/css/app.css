@@ -88,16 +88,17 @@ nav ul li {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 .form div {
     margin-left: 15px;
+    opacity: 1;
 }
-.fade{
-    background: red;
+.fade {
     opacity: 0;
+    animation: fadeOut 0.8s;
+    pointer-events: none;
 }
-.elementToFadeOut{
-    animation: fadeOut 10s;
-}
+
 @keyframes fadeOut{
     0% {
         opacity: 1;
@@ -106,16 +107,45 @@ nav ul li {
         opacity: 0;
     }
 }
-/*.form{*/
-/*    margin-left: 15px;*/
-/*}*/
-/*@keyframes fading {*/
-/*    0% {opacity:1;}*/
-/*    100% {opacity:0;}*/
-/*}*/
-/*.form.fade{*/
-/*    animation: fading 10s;*/
-/*}*/
+
+.playerdetails {
+    margin-left: 15px;
+    color: #fff1b7;
+    opacity: 0;
+}
+
+.myPlayerInfo {
+    top: -112px;
+    position: relative;
+}
+
+.otherPlayers {
+    float: right;
+    margin-right: 15px;
+}
+
+.visible {
+    color: #fff1b7;
+    opacity: 1;
+    animation: fadeIn 7s;
+}
+
+.avatar {
+    height: 50px;
+    width: 50px;
+}
+
+
+@keyframes fadeIn{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
 .lobbyForm {
     border: black solid 1px !important;
     display: block;
@@ -148,42 +178,60 @@ nav ul li {
     color: #6c0c08;
 }
 
+.btn-start {
+    top: 84%;
+    display: block;
+    background-color: #ec6f11 !important;
+    border-color: black !important;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+    width: 8%;
+}
+
+
 /* HEXAGON GRID */
-#hexagonGrid{
-    display: flex;
-    flex-wrap: wrap;
-    width: 77%;
-    margin: 2% auto;
-    overflow: hidden;
-    font-size: 15px;
-    list-style-type: none;
+.hexagonGrid{
+    position: absolute;
+    transform: scale(0.5,0.5);
 }
 
 .hex {
     position: relative;
-    width: 220px;
-    height: 255.21px;
-    margin: 86.60px 0;
+    width: 33vh;
+    height: 39vh;
 }
 
 .forest {
-    background: url("/assets/wood.png");
+    background: url("/assets/wood.png") no-repeat no-repeat;
 }
 
 .grassland {
-    background: url("/assets/wool.png");
+    background: url("/assets/wool.png") no-repeat no-repeat;
 }
 
 .hills{
-    background: url("/assets/brick.png");
+    background: url("/assets/brick.png") no-repeat no-repeat;
 }
 
 .miningField {
-    background: url("/assets/ore.png");
+    background: url("/assets/ore.png") no-repeat no-repeat;
 }
 
 .field {
-    background: url("/assets/wheat.png");
+    background: url("/assets/wheat.png") no-repeat no-repeat;
 }
 
 
@@ -196,6 +244,9 @@ nav ul li {
     margin: 0 auto;
 }
 
+.firstRow {
+    left: 20%
+}
 
 /* HEXAGON GRID END */
 
