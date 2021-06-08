@@ -18,9 +18,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('game',function(){
-    return view('game');
-});
-
-
 Route::get('game', [GameController::class, 'show']);

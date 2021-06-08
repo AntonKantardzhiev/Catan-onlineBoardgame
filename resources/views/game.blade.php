@@ -15,11 +15,80 @@
 </head>
 
 <body >
+<div class="hexagonGrid">
+    <div class="firstRow">
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+    </div>
 
+    <div class="secondRow">
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+    </div>
+    <div class="thirdRow">
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+        <div class="hex hills"></div>
+    </div>
+    <div class="fourthRow">
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+        <div class="hex grassland"></div>
+    </div>
+    <div class="fifthRow">
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+        <div class="hex miningField"></div>
+    </div>
+    <div class="sixthRow">
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+        <div class="hex field"></div>
+    </div>
+    <div class="seventhRow">
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+        <div class="hex forest"></div>
+    </div>
+
+</div>
 <div>
+    <div>@foreach($tiles as $tile)
+        {{$tile->getX() , $tile->getY()}}
+        @endforeach</div>
     copyright CATAN BOARDGAME
 </div>
 
-
+<script src="/js/game.js"></script>
 </body>
 </html>

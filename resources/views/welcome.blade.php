@@ -65,7 +65,6 @@
         <div class="hex forest"></div>
         <div class="hex forest"></div>
     </div>
-
     <div class="secondRow">
         <div class="hex field"></div>
         <div class="hex field"></div>
