@@ -175,6 +175,15 @@ class Player extends Model
     }
 
     /**
+     * @param array $roads
+     */
+    public function setRoads(array $roads): void
+    {
+        $this->roads = $roads;
+    }
+
+
+    /**
      * @return array
      */
     public function getCards(): array
