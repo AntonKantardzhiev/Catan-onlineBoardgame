@@ -32,9 +32,18 @@
     </ul>
 </aside>
 
+<div class="lobby">
+    <form class="form">
+        <div class="form-group fade">
+            <label class="label" for="playerName">What's your name?</label>
+            <input type="text" class="lobbyForm" placeholder="Write your playername here">
+            <button id="enter" type="submit" class="fadeBtn btn btn-primary">Enter</button>
+        </div>
+    </form>
+</div>
 {{--<div class="lobby">--}}
-{{--    <form class="form">--}}
-{{--        <div class="form-group">--}}
+{{--    <form class="form" >--}}
+{{--        <div class="form-group" id="fading">--}}
 {{--            <label class="label" for="playerName">What's your name?</label>--}}
 {{--            <input type="text" class="lobbyForm" placeholder="Write your playername here">--}}
 {{--            <button id="enter" type="submit" class="btn btn-primary">Enter</button>--}}
@@ -43,15 +52,16 @@
 {{--</div>--}}
 
 
-<div id="hexagonGrid">
 
-    <div class="hex forest"></div>
-    <div class="hex hills"></div>
-    <div class="hex field"></div>
-    <div class="hex miningField"></div>
-    <div class="hex grassland"></div>
+{{--<div id="hexagonGrid">--}}
 
-</div>
+{{--    <div class="hex forest"></div>--}}
+{{--    <div class="hex hills"></div>--}}
+{{--    <div class="hex field"></div>--}}
+{{--    <div class="hex miningField"></div>--}}
+{{--    <div class="hex grassland"></div>--}}
+
+{{--</div>--}}
 
 <div class="copyright mx-auto text-center">
     copyright CATAN BOARDGAME

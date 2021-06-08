@@ -88,17 +88,34 @@ nav ul li {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .form div {
     margin-left: 15px;
-    opacity: 1;
-    transition: opacity 30s ease;
 }
-
-.form.fade {
+.fade{
+    background: red;
     opacity: 0;
 }
-
+.elementToFadeOut{
+    animation: fadeOut 10s;
+}
+@keyframes fadeOut{
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+/*.form{*/
+/*    margin-left: 15px;*/
+/*}*/
+/*@keyframes fading {*/
+/*    0% {opacity:1;}*/
+/*    100% {opacity:0;}*/
+/*}*/
+/*.form.fade{*/
+/*    animation: fading 10s;*/
+/*}*/
 .lobbyForm {
     border: black solid 1px !important;
     display: block;
