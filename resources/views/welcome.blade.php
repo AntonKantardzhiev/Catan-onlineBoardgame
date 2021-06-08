@@ -56,12 +56,18 @@
 
 
 <div class="hexagonGrid">
-    <div class="hex forest"></div>
-    <div class="hex hills"></div>
-    <div class="hex field"></div>
-    <div class="hex miningField"></div>
-    <div class="hex grassland"></div>
+
+        <div class="hex forest"></div>
+        <div class="hex hills"></div>
+        <div class="hex field"></div>
+        <div class="hex miningField"></div>
+        <div class="hex grassland"></div>
+        <div class="hex forest"></div>
+        <div class="hex hills"></div>
+
 </div>
+
+{{--we can try to make ol with li instead of divs as well.--}}
 
 <div class="copyright mx-auto text-center">
     copyright CATAN BOARDGAME

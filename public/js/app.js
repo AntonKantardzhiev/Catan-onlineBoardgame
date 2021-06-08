@@ -16,6 +16,7 @@ let hexagons = document.querySelector('.hexagonGrid');
 let hex = document.querySelectorAll('.hex');
 
 
+
 popupMenuButton.addEventListener('click', () =>{
     if (sidebarToggle === false){
         sidebarMenu.style.visibility = 'visible';
@@ -41,4 +42,12 @@ startGame.addEventListener('click', () =>{
     hexagons.style.display = 'flex';
     hexagons.classList.toggle('visible');
 });
+
+
+
+
+
+
+
+
 
