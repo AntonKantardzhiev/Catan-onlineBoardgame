@@ -13,6 +13,8 @@ class Road extends Model
     private Node $toNode;
     private bool $isPlaced;
 
+
+
     /**
      * Road constructor.
      * @param bool $isPlaced
@@ -46,7 +48,21 @@ class Road extends Model
         return $this->toNode;
     }
 
+    /**
+     * @return bool
+     */
+    public function isPlaced(): bool
+    {
+        return $this->isPlaced;
+    }
 
+    /**
+     * @param bool $isPlaced
+     */
+    public function setIsPlaced(bool $isPlaced): void
+    {
+        $this->isPlaced = $isPlaced;
+    }
 
 
 }
