@@ -1855,6 +1855,42 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+var messages_el = document.getElementById("messages");
+var uname = document.getElementById("uname");
+var message_in = document.getElementById("message_in");
+var msg_form = document.getElementById("msg_form");
+msg_form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  var has_errors = false;
+
+  if (uname.value === '') {
+    alert('enter a username');
+    has_errors = true;
+  }
+
+  if (message_in.value === '') {
+    alert('enter a msg');
+    has_errors = true;
+  }
+
+  if (has_errors) {
+    return;
+  }
+
+  var options = {
+    method: 'post',
+    url: '/send-message',
+    data: {
+      username: uname.value,
+      kebab: message_in.value
+    }
+  };
+  axios(options);
+});
+window.Echo.channel('Lobby').listen('.chatmsg', function (data) {
+  console.log(data);
+  messages_el.innerHTML += data.username + " " + data.msg;
+});
 var sidebarToggle = false;
 var sidebarMenu = document.getElementById('sidebar');
 var popupMenuButton = document.getElementById('menuPopup');
