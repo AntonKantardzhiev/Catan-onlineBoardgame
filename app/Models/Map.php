@@ -36,7 +36,6 @@ class Map
     {
         return $this->tiles;
     }
-
     public function getTilesByHashTable(): array
     {
         if (!count($this->tilesHashTable)) { // lazy loading

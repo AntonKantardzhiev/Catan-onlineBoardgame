@@ -22,6 +22,12 @@ class Bank extends Model
     private string $lobby;
 
     /**
+     * @var Card[] $cards
+     */
+    private array $cards;
+
+
+    /**
      * Bank constructor.
      * @param int $brick
      * @param int $ore
@@ -30,7 +36,7 @@ class Bank extends Model
      * @param int $wool
      * @param string $lobby
      */
-    public function __construct(int $brick, int $ore, int $lumber, int $grain, int $wool, string $lobby)
+    public function __construct(int $brick, int $ore, int $lumber, int $grain, int $wool, string $lobby, array $cards)
     {
         $this->brick = $brick;
         $this->ore = $ore;
@@ -38,6 +44,7 @@ class Bank extends Model
         $this->grain = $grain;
         $this->wool = $wool;
         $this->lobby = $lobby;
+        $this->cards = $cards;
     }
 
     /**
@@ -128,5 +135,12 @@ class Bank extends Model
         $this->wool = $wool;
     }
 
+    /**
+     * @return Card[]
+     */
+    public function getCards(): array
+    {
+        return $this->cards;
+    }
 
 }

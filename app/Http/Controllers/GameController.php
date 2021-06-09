@@ -12,7 +12,7 @@ class GameController extends Controller
     {
         $mg = new MapGenerator();
         $map = $mg->createRandomTiles();
-
+        $map->getTilesByHashTable();
 
         return view('game', [
             'tiles'=>$map->getTiles()

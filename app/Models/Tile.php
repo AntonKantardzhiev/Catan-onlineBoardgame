@@ -87,6 +87,6 @@ class Tile
     }
     public function __toString(): string
     {
-        return $this->y . ", ". $this->x;
+        return $this->y . " , ". $this->x;
     }
 }

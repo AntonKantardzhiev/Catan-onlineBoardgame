@@ -15,8 +15,13 @@
 </head>
 
 <body >
+
+
+
 <div class="hexagonGrid">
+
     <div class="firstRow">
+        <div id='test'></div>
         <div class="hex forest"></div>
         <div class="hex forest"></div>
         <div class="hex forest"></div>
