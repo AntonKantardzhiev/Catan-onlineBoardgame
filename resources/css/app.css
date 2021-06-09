@@ -95,18 +95,8 @@ nav ul li {
 }
 .fade {
     opacity: 0;
-    -webkit-animation: fadeOut 0.8s;
-            animation: fadeOut 0.8s;
+    animation: fadeOut 0.8s;
     pointer-events: none;
-}
-
-@-webkit-keyframes fadeOut{
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
 }
 
 @keyframes fadeOut{
@@ -137,23 +127,12 @@ nav ul li {
 .visible {
     color: #fff1b7;
     opacity: 1;
-    -webkit-animation: fadeIn 7s;
-            animation: fadeIn 7s;
+    animation: fadeIn 7s;
 }
 
 .avatar {
     height: 50px;
     width: 50px;
-}
-
-
-@-webkit-keyframes fadeIn{
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 
 
@@ -193,14 +172,6 @@ nav ul li {
     color: #ec6f11 !important;
     background-color: #fff1b7!important;
     border-color: black !important;
-}
-
-::-moz-placeholder {
-    color: #6c0c08;
-}
-
-:-ms-input-placeholder {
-    color: #6c0c08;
 }
 
 ::placeholder {
@@ -643,4 +614,3 @@ video {
         color: rgba(203, 213, 224, var(--text-opacity))
     }
 }
-
