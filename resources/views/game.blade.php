@@ -14,7 +14,8 @@
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 
-<body >
+<body>
+
 <div class="hexagonGrid">
     <div class="firstRow">
         <div class="hex forest"></div>
