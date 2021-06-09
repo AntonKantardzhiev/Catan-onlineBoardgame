@@ -2,43 +2,27 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Bank extends Model
+class Bank
 {
-    use HasFactory;
-
+    public const  START_VALUE = 19;
     private int $brick;
-
     private int $ore;
-
     private int $lumber;
-
     private int $grain;
-
     private int $wool;
-
     private string $lobby;
 
     /**
      * Bank constructor.
-     * @param int $brick
-     * @param int $ore
-     * @param int $lumber
-     * @param int $grain
-     * @param int $wool
      * @param string $lobby
      */
-    public function __construct(int $brick, int $ore, int $lumber, int $grain, int $wool, string $lobby)
+    public function __construct(string $lobby)
     {
-        $this->brick = $brick;
-        $this->ore = $ore;
-        $this->lumber = $lumber;
-        $this->grain = $grain;
-        $this->wool = $wool;
+        $this->brick = $this->ore = $this->lumber = $this->grain = $this->wool = self::START_VALUE;
         $this->lobby = $lobby;
     }
+
 
     /**
      * @return int
@@ -127,6 +111,5 @@ class Bank extends Model
     {
         $this->wool = $wool;
     }
-
 
 }

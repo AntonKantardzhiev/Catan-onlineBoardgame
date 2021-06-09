@@ -7,10 +7,10 @@ namespace App\Models;
 class Map
 {
     /** @var Node[] */
-    private array $nodes = [];
+    private array $nodes;
 
     /** @var Tile[] */
-    private array $tiles = [];
+    private array $tiles;
 
     private array $nodesHashTable = [];//@todo Not super happy about exposing this
     private array $tilesHashTable = [];//@todo Not super happy about exposing this
