@@ -95,18 +95,8 @@ nav ul li {
 }
 .fade {
     opacity: 0;
-    -webkit-animation: fadeOut 0.8s;
-            animation: fadeOut 0.8s;
+    animation: fadeOut 0.8s;
     pointer-events: none;
-}
-
-@-webkit-keyframes fadeOut{
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
 }
 
 @keyframes fadeOut{
@@ -137,23 +127,12 @@ nav ul li {
 .visible {
     color: #fff1b7;
     opacity: 1;
-    -webkit-animation: fadeIn 7s;
-            animation: fadeIn 7s;
+    animation: fadeIn 7s;
 }
 
 .avatar {
     height: 50px;
     width: 50px;
-}
-
-
-@-webkit-keyframes fadeIn{
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
 }
 
 
@@ -195,14 +174,6 @@ nav ul li {
     border-color: black !important;
 }
 
-::-moz-placeholder {
-    color: #6c0c08;
-}
-
-:-ms-input-placeholder {
-    color: #6c0c08;
-}
-
 ::placeholder {
     color: #6c0c08;
 }
@@ -241,29 +212,27 @@ nav ul li {
     position: relative;
     width: 33vh;
     height: 39vh;
-    margin: 86.60px 0;
 }
 
+.forest {
+    background: url("/assets/wood.png") no-repeat no-repeat;
+}
 
-/*.forest {*/
-/*    background: url("/assets/wood.png") no-repeat no-repeat;*/
-/*}*/
+.grassland {
+    background: url("/assets/wool.png") no-repeat no-repeat;
+}
 
-/*.grassland {*/
-/*    background: url("/assets/wool.png") no-repeat no-repeat;*/
-/*}*/
+.hills{
+    background: url("/assets/brick.png") no-repeat no-repeat;
+}
 
-/*.hills{*/
-/*    background: url("/assets/brick.png") no-repeat no-repeat;*/
-/*}*/
+.miningField {
+    background: url("/assets/ore.png") no-repeat no-repeat;
+}
 
-/*.miningField {*/
-/*    background: url("/assets/ore.png") no-repeat no-repeat;*/
-/*}*/
-
-/*.field {*/
-/*    background: url("/assets/wheat.png") no-repeat no-repeat;*/
-/*}*/
+.field {
+    background: url("/assets/wheat.png") no-repeat no-repeat;
+}
 
 
 
@@ -645,4 +614,3 @@ video {
         color: rgba(203, 213, 224, var(--text-opacity))
     }
 }
-
