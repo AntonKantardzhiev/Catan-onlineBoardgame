@@ -36,10 +36,17 @@
     <form class="form" method="post">
         <div class="form-group">
             <label class="label" for="playerName">What's your name?</label>
-            <input type="text" class="lobbyForm" placeholder="Write your playername here">
+            <input type="text" id="uname" class="lobbyForm" placeholder="Write your playername here">
             <button id="enter" type="button" class="btn btn-primary">Enter</button>
         </div>
     </form>
+    <form id="msg_form">
+        <input type="text" name="message" id="message_in"
+        placeholder="what's up?"/>
+        <button type="submit" id="message_send">Send it!</button>
+    </form>
+
+    <div id="messages"></div>
 
     <div class="playerdetails">
         <div class="myPlayerInfo">

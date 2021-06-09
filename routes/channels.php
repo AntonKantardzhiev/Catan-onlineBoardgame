@@ -18,6 +18,4 @@ use Illuminate\Support\Facades\Broadcast;
 //    return (int) $user->id === (int) $id;
 //});
 
-Broadcast::channel('Lobby',function (){
-    return true;
-});
+

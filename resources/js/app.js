@@ -6,6 +6,47 @@
 ;
 require('./bootstrap');
 
+const messages_el = document.getElementById("messages");
+const uname = document.getElementById("uname");
+const message_in = document.getElementById("message_in");
+const msg_form = document.getElementById("msg_form");
+
+
+msg_form.addEventListener('submit', function (e){
+    e.preventDefault();
+
+    let has_errors = false;
+
+    if (uname.value === ''){
+        alert('enter a username');
+        has_errors = true;
+    }
+    if (message_in.value === ''){
+        alert('enter a msg');
+        has_errors = true;
+    }
+    if (has_errors){
+        return;
+    }
+    const options = {
+        method: 'post',
+        url: '/send-message',
+        data: {
+            username: uname.value,
+            message: message_in.value
+        }
+    }
+
+    axios(options)
+});
+
+window.Echo.channel('Lobby')
+    .listen('.chatmsg', (data)=>{
+        console.log(data);
+        messages_el.innerHTML += data.username +" "+ data.msg;
+    });
+
+
 let sidebarToggle = false;
 
 let sidebarMenu = document.getElementById('sidebar');

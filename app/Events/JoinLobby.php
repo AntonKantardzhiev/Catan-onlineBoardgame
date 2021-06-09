@@ -16,25 +16,30 @@ class JoinLobby implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public string $testmsg ='';
+    public string $msg;
+    public string $username;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($testmsg)
+    public function __construct($username,$testmsg)
     {
-        $this->testmsg = $testmsg;
+        $this->msg = $testmsg;
+        $this->username = $username;
     }
 
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return \Illuminate\Broadcasting\Channel|array
+     * @return Channel|array
      */
     public function broadcastOn()
     {
-        Log::debug($this->testmsg);
         return new Channel('Lobby');
+    }
+    public function broadcastAs()
+    {
+        return 'chatmsg';
     }
 }
