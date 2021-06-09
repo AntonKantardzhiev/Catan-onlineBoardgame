@@ -3,34 +3,27 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Player extends Model
+
+class Player
 {
     use HasFactory;
 
     private int $id;
     private string $userName;
-
     private string $color;
-
-    private int $points ;
-
+    private int $visiblePoints;
+    private int $hiddenPoints;
+    private int $wool = 0;
+    private int $brick = 0;
+    private int $ore = 0;
+    private int $lumber = 0;
+    private int $grain = 0;
     private int $knightsPlayed;
-
-    private int $brick;
-
-    private int $ore;
-
-    private int $lumber;
-
-    private int $grain;
-
-    private int $wool;
     /**
      * @var Node[]
      */
-    private array $nodes ;
+    private array $nodes;
 
     private string $lobby;
     /**
@@ -46,24 +39,19 @@ class Player extends Model
      * Player constructor.
      * @param string $userName
      * @param string $color
-     * @param int $points
      * @param int $knightsPlayed
      * @param array $nodes
      * @param string $lobby
      * @param array $roads
      * @param array $cards
      */
-    public function __construct(string $userName, string $color, int $points, int $knightsPlayed, array $nodes, string $lobby, array $roads, array $cards)
+
+
+    public function __construct(string $userName, string $color, int $knightsPlayed, array $nodes, string $lobby, array $roads, array $cards)
     {
         $this->userName = $userName;
         $this->color = $color;
-        $this->points = $points;
         $this->knightsPlayed = $knightsPlayed;
-        $this->brick = 0;
-        $this->ore = 0;
-        $this->lumber = 0;
-        $this->grain = 0;
-        $this->wool = 0;
         $this->nodes = $nodes;
         $this->lobby = $lobby;
         $this->roads = $roads;

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +20,5 @@ Route::get('/', function () {
 });
 
 Route::get('game', [GameController::class, 'show']);
+
+Route::post('/send-message', [ChatController::class,'showChat']);
