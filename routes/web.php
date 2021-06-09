@@ -1,11 +1,8 @@
 <?php
 
-use App\Events\JoinLobby;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
-use App\Events\Message;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,11 +21,4 @@ Route::get('/', function () {
 
 Route::get('game', [GameController::class, 'show']);
 
-Route::post('/send-message', function (Request $request) {
-    event(
-        new JoinLobby($request->input('username'),
-            $request->input('message')
-        )
-    );
-    return ["succes" => true];
-});
+Route::post('/send-message', [ChatController::class,'showChat']);
