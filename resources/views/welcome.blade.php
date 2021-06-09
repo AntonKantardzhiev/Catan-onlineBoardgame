@@ -33,7 +33,7 @@
 </aside>
 
 <div class="lobby">
-    <form class="form">
+    <form class="form" method="post">
         <div class="form-group">
             <label class="label" for="playerName">What's your name?</label>
             <input type="text" class="lobbyForm" placeholder="Write your playername here">
