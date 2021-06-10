@@ -1911,6 +1911,7 @@ popupMenuButton.addEventListener('click', function () {
     sidebarMenu.style.width = '-200px';
   }
 });
+playerNames.style.display = 'none';
 hexagons.style.display = 'none';
 avatar.style.display = 'none';
 enterPlayerName.addEventListener('click', function () {

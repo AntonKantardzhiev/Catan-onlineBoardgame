@@ -33,20 +33,14 @@
 </aside>
 
 <div class="lobby">
-    <form class="form" method="post">
+    <form class="form">
         <div class="form-group">
             <label class="label" for="playerName">What's your name?</label>
             <input type="text" id="uname" class="lobbyForm" placeholder="Write your playername here">
             <button id="enter" type="button" class="btn btn-primary">Enter</button>
         </div>
     </form>
-    <form id="msg_form">
-        <input type="text" name="message" id="message_in"
-        placeholder="what's up?"/>
-        <button type="submit" id="message_send">Send it!</button>
-    </form>
 
-    <div id="messages"></div>
 
     <div class="playerdetails">
         <div class="myPlayerInfo">
@@ -61,6 +55,15 @@
     <button id="start" type="button" class="btn-start btn-primary">Start game</button>
 </div>
 
+<div class="chat-sidebar chatbox">
+    <h5>Chat here!</h5>
+    <div id="messages"></div>
+    <form id="msg_form">
+        <textarea id="message_in" rows="6" cols="45" name="message" form="msg_form">
+what's up?...</textarea>
+        <button type="submit" id="message_send">Send it!</button>
+    </form>
+</div>
 
 <div class="hexagonGrid">
     <div class="firstRow">

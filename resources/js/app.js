@@ -75,6 +75,7 @@ popupMenuButton.addEventListener('click', () => {
     }
 });
 
+playerNames.style.display = 'none';
 hexagons.style.display = 'none';
 avatar.style.display = 'none';
 
