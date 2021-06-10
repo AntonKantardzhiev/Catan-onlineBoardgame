@@ -16,6 +16,16 @@
 
 <body>
 
+<div class="chat-sidebar chatbox">
+    <h5>Chat here!</h5>
+    <div id="messages"></div>
+    <form id="msg_form">
+        <textarea id="message_in" rows="6" cols="45" name="message" form="msg_form">
+what's up?...</textarea>
+        <button type="submit" id="message_send">Send it!</button>
+    </form>
+</div>
+
 <div class="hexagonGrid">
     <div class="firstRow">
         <div class="hex forest"></div>
@@ -90,6 +100,6 @@
     copyright CATAN BOARDGAME
 </div>
 
-<script src="/js/game.js"></script>
+<script src="/js/app.js"></script>
 </body>
 </html>

@@ -81,7 +81,7 @@ class Map
      * @param int $radius
      * @return Tile[]
      */
-    #[Pure] public function getTileRingInRadius(Tile $origin, int $radius): array
+    public function getTileRingInRadius(Tile $origin, int $radius): array
     {
         $tempTiles = [];
         foreach($this->tiles AS $tile)
@@ -100,7 +100,7 @@ class Map
      * @param int $radius
      * @return Tile[]
      */
-    #[Pure] public function getTilesWithinRadius(Tile $origin, int $radius): array
+    public function getTilesWithinRadius(Tile $origin, int $radius): array
     {
         $tempTiles = [$origin];
         for($i = 1; $i <= $radius; $i++)

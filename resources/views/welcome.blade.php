@@ -44,7 +44,7 @@
 
     <div class="playerdetails">
         <div class="myPlayerInfo">
-            <h3 class="currentPlayerName">Playername here</h3>
+            <h3 id="currentPlayerName" class="currentPlayerName">Playername here</h3>
             <img class="avatar" src="/assets/avatar.png" alt="avatar">
         </div>
         <div class="otherPlayers">
@@ -59,7 +59,7 @@
     <h5>Chat here!</h5>
     <div id="messages"></div>
     <form id="msg_form">
-        <textarea id="message_in" rows="6" cols="45" name="message" form="msg_form">
+        <textarea id="message_in" rows="6" cols="5" name="message" form="msg_form">
 what's up?...</textarea>
         <button type="submit" id="message_send">Send it!</button>
     </form>

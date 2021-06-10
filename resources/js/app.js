@@ -10,6 +10,8 @@ const messages_el = document.getElementById("messages");
 const uname = document.getElementById("uname");
 const message_in = document.getElementById("message_in");
 const msg_form = document.getElementById("msg_form");
+const enterPlayerName = document.getElementById('enter');
+const currentPlayerName = document.getElementById("currentPlayerName");
 
 
 msg_form.addEventListener('submit', function (e){
@@ -40,10 +42,41 @@ msg_form.addEventListener('submit', function (e){
     axios(options)
 });
 
-window.Echo.channel('Lobby')
-    .listen('.chatmsg', (data)=>{
+enterPlayerName.addEventListener('click', function (e){
+    e.preventDefault();
+
+    let has_errors = false;
+
+    if (uname.value === ''){
+        alert('enter a username');
+        has_errors = true;
+    }
+
+    if (has_errors){
+        return;
+    }
+
+    currentPlayerName.innerHTML = uname.value;
+
+    const options = {
+        method: 'post',
+        url: '/show-username',
+        data: {
+            username: uname.value,
+        }
+    }
+    axios(options)
+});
+
+window.Echo.channel('chat')
+    .listen('.message', (data)=>{
         console.log(data);
-        messages_el.innerHTML += data.username +" "+ data.msg;
+        messages_el.innerHTML += data.username +" "+ data.message;
+    });
+
+window.Echo.channel('Lobby')
+    .listen('.username', (data)=>{
+        console.log(data);
     });
 
 
@@ -52,13 +85,11 @@ let sidebarToggle = false;
 let sidebarMenu = document.getElementById('sidebar');
 let popupMenuButton = document.getElementById('menuPopup');
 
-let enterPlayerName = document.getElementById('enter');
 let form = document.querySelector('form');
 
 let playerNames = document.querySelector('.playerdetails');
 
 let avatar = document.querySelector('.avatar')
-
 let startGame = document.getElementById('start');
 let lobby = document.querySelector('.lobby');
 let hexagons = document.querySelector('.hexagonGrid');
@@ -82,6 +113,7 @@ avatar.style.display = 'none';
 enterPlayerName.addEventListener('click', () => {
     form.classList.toggle('fade');
     avatar.style.display = 'block';
+    playerNames.style.display = 'block';
     playerNames.classList.toggle('visible');
 });
 

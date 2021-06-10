@@ -16,16 +16,14 @@ class JoinLobby implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public string $msg;
     public string $username;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($username,$testmsg)
+    public function __construct($username)
     {
-        $this->msg = $testmsg;
         $this->username = $username;
     }
 
@@ -40,6 +38,6 @@ class JoinLobby implements ShouldBroadcast
     }
     public function broadcastAs()
     {
-        return 'chatmsg';
+        return 'username';
     }
 }
