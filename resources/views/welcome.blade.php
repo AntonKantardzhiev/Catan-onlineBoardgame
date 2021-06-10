@@ -27,9 +27,7 @@
 </nav>
 
 <aside id="sidebar" class="nav-sidebar">
-    <ul class="text-center mx-auto">
-        <li class="navButton sidebarButtons">Rules</li>
-    </ul>
+        <a class="text-center mx-auto navButton sidebarButtons">Rules</a>
 </aside>
 
 <div class="lobby">
@@ -44,11 +42,12 @@
 
     <div class="playerdetails">
         <div class="myPlayerInfo">
-            <h3 id="currentPlayerName" class="currentPlayerName">Playername here</h3>
+            <h3 id="currentPlayerName" class="currentPlayerName"></h3>
             <img class="avatar" src="/assets/avatar.png" alt="avatar">
         </div>
-        <div class="otherPlayers">
-            <h3 class="otherPlayerName">playername</h3>
+
+        <div id="otherPlayerNames" class="otherPlayers">
+            <h3 class="otherPlayerName"></h3>
             <img class="avatar" src="/assets/avatar.png" alt="avatar">
         </div>
 </div>

@@ -12,6 +12,7 @@ const message_in = document.getElementById("message_in");
 const msg_form = document.getElementById("msg_form");
 const enterPlayerName = document.getElementById('enter');
 const currentPlayerName = document.getElementById("currentPlayerName");
+const playerList = document.getElementById('otherPlayerNames');
 
 
 msg_form.addEventListener('submit', function (e){
@@ -77,6 +78,7 @@ window.Echo.channel('chat')
 window.Echo.channel('Lobby')
     .listen('.username', (data)=>{
         console.log(data);
+        playerList.innerHTML += data.username;
     });
 
 
@@ -98,9 +100,11 @@ let hexagons = document.querySelector('.hexagonGrid');
 
 popupMenuButton.addEventListener('click', () => {
     if (sidebarToggle === false) {
+        sidebarToggle = true;
         sidebarMenu.style.visibility = 'visible';
         sidebarMenu.style.width = '200px';
     } else {
+        sidebarToggle = false;
         sidebarMenu.style.visibility = 'hidden';
         sidebarMenu.style.width = '-200px';
     }

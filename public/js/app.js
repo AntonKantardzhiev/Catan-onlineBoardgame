@@ -1861,6 +1861,7 @@ var message_in = document.getElementById("message_in");
 var msg_form = document.getElementById("msg_form");
 var enterPlayerName = document.getElementById('enter');
 var currentPlayerName = document.getElementById("currentPlayerName");
+var playerList = document.getElementById('otherPlayerNames');
 msg_form.addEventListener('submit', function (e) {
   e.preventDefault();
   var has_errors = false;
@@ -1918,6 +1919,7 @@ window.Echo.channel('chat').listen('.message', function (data) {
 });
 window.Echo.channel('Lobby').listen('.username', function (data) {
   console.log(data);
+  playerList.innerHTML += data.username;
 });
 var sidebarToggle = false;
 var sidebarMenu = document.getElementById('sidebar');
@@ -1931,9 +1933,11 @@ var hexagons = document.querySelector('.hexagonGrid'); // let hex = document.que
 
 popupMenuButton.addEventListener('click', function () {
   if (sidebarToggle === false) {
+    sidebarToggle = true;
     sidebarMenu.style.visibility = 'visible';
     sidebarMenu.style.width = '200px';
   } else {
+    sidebarToggle = false;
     sidebarMenu.style.visibility = 'hidden';
     sidebarMenu.style.width = '-200px';
   }
