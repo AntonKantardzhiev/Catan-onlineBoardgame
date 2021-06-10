@@ -38,6 +38,7 @@ class Map
     {
         return $this->tiles;
     }
+
     public function getTilesByHashTable(): array
     {
         if (!count($this->tilesHashTable)) { // lazy loading
@@ -80,7 +81,7 @@ class Map
      * @param int $radius
      * @return Tile[]
      */
-     public function getTileRingInRadius(Tile $origin, int $radius): array
+    public function getTileRingInRadius(Tile $origin, int $radius): array
     {
         $tempTiles = [];
         foreach($this->tiles AS $tile)
