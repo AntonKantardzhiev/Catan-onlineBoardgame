@@ -14,15 +14,21 @@ class Bank
     private string $lobby;
 
     /**
+     * @var Card[] $cards
+     */
+    private array $cards;
+
+
+    /**
      * Bank constructor.
      * @param string $lobby
      */
-    public function __construct(string $lobby)
+    public function __construct(string $lobby, array $cards)
     {
         $this->brick = $this->ore = $this->lumber = $this->grain = $this->wool = self::START_VALUE;
         $this->lobby = $lobby;
+        $this->cards = $cards;
     }
-
 
     /**
      * @return int
@@ -110,6 +116,14 @@ class Bank
     public function setWool(int $wool): void
     {
         $this->wool = $wool;
+    }
+
+    /**
+     * @return Card[]
+     */
+    public function getCards(): array
+    {
+        return $this->cards;
     }
 
 }

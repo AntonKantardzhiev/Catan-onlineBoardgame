@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 
-use JetBrains\PhpStorm\Pure;
+
 
 class Tile
 {
@@ -89,7 +89,7 @@ class Tile
     }
     public function __toString(): string
     {
-        return $this->y . ", ". $this->x;
+        return $this->y . " , ". $this->x;
     }
 
     /**
