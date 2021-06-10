@@ -1882,7 +1882,7 @@ msg_form.addEventListener('submit', function (e) {
     url: '/send-message',
     data: {
       username: uname.value,
-      kebab: message_in.value
+      message: message_in.value
     }
   };
   axios(options);

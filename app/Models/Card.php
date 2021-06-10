@@ -2,12 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Card extends Model
+class Card
 {
-    use HasFactory;
 
     private string $type ;
     private string $title ;

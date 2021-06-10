@@ -4,6 +4,8 @@ declare(strict_types=1);
 namespace App\Models;
 
 
+use JetBrains\PhpStorm\Pure;
+
 class Tile
 {
 
@@ -89,4 +91,29 @@ class Tile
     {
         return $this->y . " , ". $this->x;
     }
+
+    /**
+     * Static function to return the distance between two tiles
+     * @param Tile $firstTile
+     * @param Tile $secondTile
+     * @return int
+     */
+    #[Pure] public static function getDistance(Tile $firstTile, Tile $secondTile): int
+    {
+        $dx = abs($firstTile->getX() - $secondTile->getX());
+        $dy = abs($firstTile->getY() - $secondTile->getY());
+        return $dy + max(0, ($dx - $dy)/2);
+    }
+
+    /**
+     * returns distance between this tile and another tile. helpful in determining rings, neighbours, etc.
+     * @param Tile $tile
+     * @return int
+     */
+    #[Pure] public function getDistanceFrom(Tile $tile) : int
+    {
+        return self::getDistance($this, $tile);
+    }
+
+
 }
