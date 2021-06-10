@@ -1859,6 +1859,9 @@ var messages_el = document.getElementById("messages");
 var uname = document.getElementById("uname");
 var message_in = document.getElementById("message_in");
 var msg_form = document.getElementById("msg_form");
+var enterPlayerName = document.getElementById('enter');
+var currentPlayerName = document.getElementById("currentPlayerName");
+var playerList = document.getElementById('otherPlayerNames');
 msg_form.addEventListener('submit', function (e) {
   e.preventDefault();
   var has_errors = false;
@@ -1887,14 +1890,40 @@ msg_form.addEventListener('submit', function (e) {
   };
   axios(options);
 });
-window.Echo.channel('Lobby').listen('.chatmsg', function (data) {
+enterPlayerName.addEventListener('click', function (e) {
+  e.preventDefault();
+  var has_errors = false;
+
+  if (uname.value === '') {
+    alert('enter a username');
+    has_errors = true;
+  }
+
+  if (has_errors) {
+    return;
+  }
+
+  currentPlayerName.innerHTML = uname.value;
+  var options = {
+    method: 'post',
+    url: '/show-username',
+    data: {
+      username: uname.value
+    }
+  };
+  axios(options);
+});
+window.Echo.channel('chat').listen('.message', function (data) {
   console.log(data);
-  messages_el.innerHTML += data.username + " " + data.msg;
+  messages_el.innerHTML += data.username + " " + data.message;
+});
+window.Echo.channel('Lobby').listen('.username', function (data) {
+  console.log(data);
+  playerList.innerHTML += data.username;
 });
 var sidebarToggle = false;
 var sidebarMenu = document.getElementById('sidebar');
 var popupMenuButton = document.getElementById('menuPopup');
-var enterPlayerName = document.getElementById('enter');
 var form = document.querySelector('form');
 var playerNames = document.querySelector('.playerdetails');
 var avatar = document.querySelector('.avatar');
@@ -1904,18 +1933,22 @@ var hexagons = document.querySelector('.hexagonGrid'); // let hex = document.que
 
 popupMenuButton.addEventListener('click', function () {
   if (sidebarToggle === false) {
+    sidebarToggle = true;
     sidebarMenu.style.visibility = 'visible';
     sidebarMenu.style.width = '200px';
   } else {
+    sidebarToggle = false;
     sidebarMenu.style.visibility = 'hidden';
     sidebarMenu.style.width = '-200px';
   }
 });
+playerNames.style.display = 'none';
 hexagons.style.display = 'none';
 avatar.style.display = 'none';
 enterPlayerName.addEventListener('click', function () {
   form.classList.toggle('fade');
   avatar.style.display = 'block';
+  playerNames.style.display = 'block';
   playerNames.classList.toggle('visible');
 });
 startGame.addEventListener('click', function () {

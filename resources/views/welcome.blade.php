@@ -27,9 +27,7 @@
 </nav>
 
 <aside id="sidebar" class="nav-sidebar">
-    <ul class="text-center mx-auto">
-        <li class="navButton sidebarButtons">Rules</li>
-    </ul>
+        <a class="text-center mx-auto navButton sidebarButtons">Rules</a>
 </aside>
 
 <div class="lobby">
@@ -40,27 +38,31 @@
             <button id="enter" type="button" class="btn btn-primary">Enter</button>
         </div>
     </form>
-    <form id="msg_form">
-        <input type="text" name="message" id="message_in"
-        placeholder="what's up?"/>
-        <button type="submit" id="message_send">Send it!</button>
-    </form>
 
-    <div id="messages"></div>
 
     <div class="playerdetails">
         <div class="myPlayerInfo">
-            <h3 class="currentPlayerName">Playername here</h3>
+            <h3 id="currentPlayerName" class="currentPlayerName"></h3>
             <img class="avatar" src="/assets/avatar.png" alt="avatar">
         </div>
-        <div class="otherPlayers">
-            <h3 class="otherPlayerName">playername</h3>
+
+        <div id="otherPlayerNames" class="otherPlayers">
+            <h3 class="otherPlayerName"></h3>
             <img class="avatar" src="/assets/avatar.png" alt="avatar">
         </div>
 </div>
     <button id="start" type="button" class="btn-start btn-primary">Start game</button>
 </div>
 
+<div class="chat-sidebar chatbox">
+    <h5>Chat here!</h5>
+    <div id="messages"></div>
+    <form id="msg_form">
+        <textarea id="message_in" rows="6" cols="5" name="message" form="msg_form">
+what's up?...</textarea>
+        <button type="submit" id="message_send">Send it!</button>
+    </form>
+</div>
 
 <div class="hexagonGrid">
     <div class="firstRow">

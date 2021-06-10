@@ -53,6 +53,8 @@ nav ul li {
     list-style: none;
     display: inline-block;
     text-align: center;
+    width: 100%;
+    cursor: pointer;
 }
 
 .navigation {
@@ -61,13 +63,14 @@ nav ul li {
     justify-content: space-evenly;
 }
 
-.nav-sidebar, .nav-sidebar ul {
+.nav-sidebar {
     visibility: hidden;
     overflow: hidden;
 }
 
 .nav-sidebar {
     position: fixed;
+    z-index: 1;
     left: 0;
     bottom: 0;
     width: 76px;
@@ -77,15 +80,75 @@ nav ul li {
     border: black solid 1px;
 }
 
+.nav-sidebar ul {
+    list-style: none;
+}
+
+.chat-sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 76px;
+    padding: 0 5px;
+    height: calc(100vh - 40px);
+    background: white;
+    border: black solid 1px;
+}
+
+.chatbox {
+    border: black solid 1px;
+    display: block;
+    background-color: #f9d6bc8f;
+    left: 76%;
+    width: 350px;
+}
+
+.chatbox h5 {
+    top: 2%;
+    transform: translate(36%, -50%);
+    width: 100%;
+    position: absolute;
+}
+
+.chatbox textarea {
+    width: 100%;
+    height: 100%;
+}
+
+#message_send {
+    position: absolute;
+    bottom: 2px;
+    left: 79%;
+}
+
+#messages {
+    border: black solid 1px;
+    background-color: #fffffff0;
+    height: calc(100vh - 248px);
+    position: fixed;
+    bottom: 176px;
+    width: 22%;
+    padding: 0 5px;
+    border: black solid 1px;
+}
+
+#msg_form {
+    position: absolute;
+    bottom: 32px;
+    border: black solid 1px;
+    width: 97%;
+    height: 20%;
+}
+
 .lobby {
     background: linear-gradient(180deg, #6c0c08 0%, #080303 64%);
     border: black solid 3px;
     display: block;
     position: absolute;
-    width: 80%;
+    width: 50%;
     height: 500px;
     top: 50%;
-    left: 50%;
+    left: 30%;
     transform: translate(-50%, -50%);
 }
 
@@ -93,6 +156,7 @@ nav ul li {
     margin-left: 15px;
     opacity: 1;
 }
+
 .fade {
     opacity: 0;
     -webkit-animation: fadeOut 0.8s;
@@ -100,7 +164,7 @@ nav ul li {
     pointer-events: none;
 }
 
-@-webkit-keyframes fadeOut{
+@-webkit-keyframes fadeOut {
     0% {
         opacity: 1;
     }
@@ -109,7 +173,7 @@ nav ul li {
     }
 }
 
-@keyframes fadeOut{
+@keyframes fadeOut {
     0% {
         opacity: 1;
     }
@@ -147,7 +211,7 @@ nav ul li {
 }
 
 
-@-webkit-keyframes fadeIn{
+@-webkit-keyframes fadeIn {
     0% {
         opacity: 0;
     }
@@ -157,7 +221,7 @@ nav ul li {
 }
 
 
-@keyframes fadeIn{
+@keyframes fadeIn {
     0% {
         opacity: 0;
     }
@@ -179,11 +243,11 @@ nav ul li {
     background-color: #fff;
     background-clip: padding-box;
     border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .btn-primary {
-    color: #fff1b7!important;
+    color: #fff1b7 !important;
     background-color: #ec6f11 !important;
     border-color: black !important;
     margin-top: 8px;
@@ -191,7 +255,7 @@ nav ul li {
 
 .btn-primary:hover {
     color: #ec6f11 !important;
-    background-color: #fff1b7!important;
+    background-color: #fff1b7 !important;
     border-color: black !important;
 }
 
@@ -223,7 +287,7 @@ nav ul li {
     font-size: 1rem;
     line-height: 1.5;
     border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     transform: translateX(-50%);
     left: 50%;
     position: absolute;
@@ -232,9 +296,9 @@ nav ul li {
 
 
 /* HEXAGON GRID */
-.hexagonGrid{
+.hexagonGrid {
     position: absolute;
-    transform: scale(0.5,0.5);
+    transform: scale(0.5, 0.5);
 }
 
 .hex {
@@ -251,7 +315,7 @@ nav ul li {
     background: url("/assets/wool.png") no-repeat no-repeat;
 }
 
-.hills{
+.hills {
     background: url("/assets/brick.png") no-repeat no-repeat;
 }
 
@@ -262,7 +326,6 @@ nav ul li {
 .field {
     background: url("/assets/wheat.png") no-repeat no-repeat;
 }
-
 
 
 .hex img {

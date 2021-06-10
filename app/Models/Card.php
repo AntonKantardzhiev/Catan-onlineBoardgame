@@ -9,6 +9,7 @@ class Card
     private string $type ;
     private string $title ;
     private string $description;
+    private ?string $variant;
 
     /**
      * Card constructor.
@@ -16,11 +17,12 @@ class Card
      * @param string $title
      * @param string $description
      */
-    public function __construct(string $type, string $title, string $description)
+    public function __construct(string $type, string $title, string $description, string $variant = null)
     {
         $this->type = $type;
         $this->title = $title;
         $this->description = $description;
+        $this->variant = $variant;
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Node;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
@@ -27,11 +28,11 @@ class Player implements \JsonSerializable
 
     private string $lobby;
     /**
-     * @var array
+     * @var Road[]
      */
     private array $roads ;
     /**
-     * @var array
+     * @var Card[]
      */
     private array $cards;
 
@@ -82,13 +83,39 @@ class Player implements \JsonSerializable
         return $this->color;
     }
 
+
     /**
      * @return int
      */
-    public function getPoints(): int
+    public function getVisiblePoints(): int
     {
-        return $this->points;
+        return $this->visiblePoints;
     }
+
+    /**
+     * @param int $visiblePoints
+     */
+    public function setVisiblePoints(int $visiblePoints): void
+    {
+        $this->visiblePoints = $visiblePoints;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHiddenPoints(): int
+    {
+        return $this->hiddenPoints;
+    }
+
+    /**
+     * @param int $hiddenPoints
+     */
+    public function setHiddenPoints(int $hiddenPoints): void
+    {
+        $this->hiddenPoints = $hiddenPoints;
+    }
+
 
     /**
      * @return int
@@ -139,7 +166,16 @@ class Player implements \JsonSerializable
     }
 
     /**
-     * @return array
+     * @param Node[] $nodes
+     */
+    public function setNodes(array $nodes): void
+    {
+        $this->nodes = $nodes;
+    }
+
+
+    /**
+     * @return Node[]
      */
     public function getNodes(): array
     {
@@ -155,7 +191,7 @@ class Player implements \JsonSerializable
     }
 
     /**
-     * @return array
+     * @return Road[]
      */
     public function getRoads(): array
     {
@@ -172,12 +208,108 @@ class Player implements \JsonSerializable
 
 
     /**
-     * @return array
+     * @return Card[]
      */
     public function getCards(): array
     {
         return $this->cards;
     }
+
+    private const MAX_SETTLEMENTS = 5;
+    private const MAX_CITIES = 4;
+    private const MAX_ROADS = 15;
+
+    private const PRICE_ORE_FOR_CITY = 3;
+    private const PRICE_GRAIN_FOR_CITY = 2;
+
+    private const PRICE_BRICK_FOR_ROAD = 1;
+    private const PRICE_LUMBER_FOR_ROAD = 1;
+
+    private const PRICE_BRICK_FOR_SETTLEMENT = 1;
+    private const PRICE_LUMBER_FOR_SETTLEMENT = 1;
+    private const PRICE_WOOL_FOR_SETTLEMENT = 1;
+    private const PRICE_GRAIN_FOR_SETTLEMENT = 1;
+
+    private const PRICE_WOOL_FOR_CARD = 1;
+    private const PRICE_GRAIN_FOR_CARD = 1;
+    private const PRICE_ORE_FOR_CARD = 1;
+
+
+    public function availableBuildingsForUser(Map $map): array{
+
+
+        $placedSettlements = 0;
+        $placedCities = 0;
+
+        foreach($map->getNodes() as $node) {
+
+            if($node->getOwnedBy() === $this && $node->isCity() === false){
+
+                $placedSettlements ++ ;
+
+            }
+
+            if($node->getOwnedBy() === $this && $node->isCity() === true){
+
+                $placedCities ++;
+
+            }
+        }
+
+        $availableSettlements =  self::MAX_SETTLEMENTS - $placedSettlements ;
+        $availableCities = self::MAX_CITIES - $placedCities ;
+
+        return array('available_settlements' => $availableSettlements, 'available_cities' => $availableCities);
+
+    }
+
+
+    // @Todo create player property in node + getplayer method
+    // @ Todo implement is city bool property
+    public function canPlaceCity(Node $node, Map $map): bool
+    {
+
+
+        $availableBuildings = $this->availableBuildingsForUser($map);
+
+        if($availableBuildings['available_cities']<=0){
+            return false;
+        }
+
+        if($this->ore < self::PRICE_ORE_FOR_CITY || $this->grain < self::PRICE_GRAIN_FOR_CITY ){
+            return false;
+        }
+
+        if($node->getOwnedBy() !== $this){
+            return false;
+        }
+        if( $node->isCity() === true){
+            return false;
+        }
+
+        return true;
+    }
+
+
+
+    public function canBuyCard(Bank $bank): bool
+    {
+
+        if($this->ore < self::PRICE_ORE_FOR_CARD || $this->wool < self::PRICE_WOOL_FOR_CARD || $this->grain < self::PRICE_GRAIN_FOR_CARD){
+            return false;
+        }
+
+
+        if(empty($bank->getCards())){
+            return false;
+        }
+
+
+
+        return true;
+
+    }
+
 
 
 }

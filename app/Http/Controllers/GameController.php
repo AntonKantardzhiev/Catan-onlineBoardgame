@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Map;
 use App\Models\MapGenerator;
 use Illuminate\Http\Request;
-use PHPUnit\Util\Json;
 
 class GameController extends Controller
 {
@@ -16,6 +15,7 @@ class GameController extends Controller
     {
         $mg = new MapGenerator();
         $map = $mg->createRandomTiles();
+        $map->getTilesByHashTable();
 
         //testing logic for writing to json
         $json = json_encode($map);
