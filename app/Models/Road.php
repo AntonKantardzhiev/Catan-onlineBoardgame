@@ -10,9 +10,9 @@ class Road
     private Player $owner;
 
 
-    public function __construct(Player $owner, Node $fromNode, Node $toNode)
+    public function __construct(Node $fromNode, Node $toNode)
     {
-        $this->owner = $owner;
+
         $this->fromNode = $fromNode;
         $this->toNode = $toNode;
     }
@@ -32,6 +32,16 @@ class Road
     {
         return $this->toNode;
     }
+
+    /**
+     * @param Player $owner
+     */
+    public function setOwner(Player $owner): void
+    {
+        $this->owner = $owner;
+    }
+
+
 
     /**
      * @return Player

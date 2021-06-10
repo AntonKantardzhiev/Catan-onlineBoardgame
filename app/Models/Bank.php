@@ -23,7 +23,7 @@ class Bank
      * Bank constructor.
      * @param string $lobby
      */
-    public function __construct(string $lobby)
+    public function __construct(string $lobby, array $cards)
     {
         $this->brick = $this->ore = $this->lumber = $this->grain = $this->wool = self::START_VALUE;
         $this->lobby = $lobby;

@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Node;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Player extends Model
+class Player
 {
     use HasFactory;
 
@@ -84,13 +84,39 @@ class Player extends Model
         return $this->color;
     }
 
+
     /**
      * @return int
      */
-    public function getPoints(): int
+    public function getVisiblePoints(): int
     {
-        return $this->points;
+        return $this->visiblePoints;
     }
+
+    /**
+     * @param int $visiblePoints
+     */
+    public function setVisiblePoints(int $visiblePoints): void
+    {
+        $this->visiblePoints = $visiblePoints;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHiddenPoints(): int
+    {
+        return $this->hiddenPoints;
+    }
+
+    /**
+     * @param int $hiddenPoints
+     */
+    public function setHiddenPoints(int $hiddenPoints): void
+    {
+        $this->hiddenPoints = $hiddenPoints;
+    }
+
 
     /**
      * @return int
@@ -209,22 +235,22 @@ class Player extends Model
     private const PRICE_GRAIN_FOR_CARD = 1;
     private const PRICE_ORE_FOR_CARD = 1;
 
-    // @Todo create player property in node + getplayer method
-    public function availableBuildingsForUser(): array{
+
+    public function availableBuildingsForUser(Map $map): array{
 
 
         $placedSettlements = 0;
         $placedCities = 0;
 
-        foreach($this->getNodes() as $node) {
+        foreach($map->getNodes() as $node) {
 
-            if($node->getPlayer() === $this && $node->getIsCity() === false){
+            if($node->getOwnedBy() === $this && $node->isCity() === false){
 
                 $placedSettlements ++ ;
 
             }
 
-            if($node->getPlayer() === $this && $node->getIsCity() === true){
+            if($node->getOwnedBy() === $this && $node->isCity() === true){
 
                 $placedCities ++;
 
@@ -238,34 +264,14 @@ class Player extends Model
 
     }
 
-    public function availableRoadsForUser(): int
-    {
-
-        $placedRoads = 0;
-
-        foreach($this->roads as $road){
-
-            if($road->IsPlaced() === false){
-
-                $placedRoads ++;
-
-            }
-
-        }
-
-        $availableRoads = self::MAX_ROADS - $placedRoads;
-
-        return $availableRoads;
-
-    }
 
     // @Todo create player property in node + getplayer method
     // @ Todo implement is city bool property
-    public function canPlaceCity(Node $node): bool
+    public function canPlaceCity(Node $node, Map $map): bool
     {
 
 
-        $availableBuildings = $this->availableBuildingsForUser();
+        $availableBuildings = $this->availableBuildingsForUser($map);
 
         if($availableBuildings['available_cities']<=0){
             return false;
@@ -275,54 +281,31 @@ class Player extends Model
             return false;
         }
 
-        if($node->getPlayer() !== $this){
+        if($node->getOwnedBy() !== $this){
             return false;
         }
-        if(!$node->getIsPlaced() || $node->getIsCity() === true){
+        if( $node->isCity() === true){
             return false;
         }
 
         return true;
     }
 
-    //@ToDO check inside this function if the space is still available based on the nodes.
-    // @ToDo check if the new road is connected to a city, settlement or different road.
-    public function canPlaceRoad(): bool
-    {
-
-        if($this->availableRoadsForUser()<=0){
-            return false;
-        }
-
-        if($this->brick < self::PRICE_BRICK_FOR_ROAD || $this->lumber < self::PRICE_LUMBER_FOR_ROAD){
-            return false;
-        }
-
-        return true;
 
 
-    }
-
-    public function canBuyCard(Lobby $lobby): bool
+    public function canBuyCard(Bank $bank): bool
     {
 
         if($this->ore < self::PRICE_ORE_FOR_CARD || $this->wool < self::PRICE_WOOL_FOR_CARD || $this->grain < self::PRICE_GRAIN_FOR_CARD){
             return false;
         }
 
-        $availableLobbyCards = 0;
 
-        foreach ($lobby->getCards() as $card){
-
-            if($card->getHeldBy() === null){
-
-                $availableLobbyCards ++;
-            }
-        }
-
-        if($availableLobbyCards === 0){
+        if(empty($bank->getCards())){
             return false;
         }
+
+
 
         return true;
 
