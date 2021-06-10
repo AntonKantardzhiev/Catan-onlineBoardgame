@@ -67,23 +67,4 @@ class cardDeckGenerator
 
     }
 
-
-
-    //@Todo depending on if we will use a database this function should change the heldBy of the card instead of popping the array;
-    /**
-     * @throws Exception
-     * @return Card;
-     */
-    public function drawCard(): Card
-    {
-
-        if(empty($this->deck)){
-
-            throw new Exception('The card deck is empty');
-        }
-
-        return array_pop($this->deck);
-    }
-
-
 }

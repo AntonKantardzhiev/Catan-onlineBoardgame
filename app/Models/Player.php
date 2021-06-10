@@ -20,11 +20,11 @@ class Player
     private int $ore = 0;
     private int $lumber = 0;
     private int $grain = 0;
-    private int $knightsPlayed;
+    private int $knightsPlayed = 0;
     /**
      * @var Node[]
      */
-    private array $nodes;
+    private array $nodes = [];
 
 
     private string $lobby;
@@ -35,29 +35,24 @@ class Player
     /**
      * @var Card[]
      */
-    private array $cards;
+    private array $cards = [];
 
     /**
      * Player constructor.
      * @param string $userName
      * @param string $color
-     * @param int $knightsPlayed
-     * @param array $nodes
      * @param string $lobby
-     * @param array $roads
-     * @param array $cards
      */
 
 
-    public function __construct(string $userName, string $color, int $knightsPlayed, array $nodes, string $lobby, array $roads, array $cards)
+    public function __construct(string $userName, string $color,string $lobby)
     {
         $this->userName = $userName;
         $this->color = $color;
-        $this->knightsPlayed = $knightsPlayed;
-        $this->nodes = $nodes;
+
         $this->lobby = $lobby;
-        $this->roads = $roads;
-        $this->cards = $cards;
+
+
     }
 
     /**
@@ -216,6 +211,12 @@ class Player
         return $this->cards;
     }
 
+    public function addCard(Card $card): void{
+
+        $this->cards[] = $card;
+
+    }
+
     private const MAX_SETTLEMENTS = 5;
     private const MAX_CITIES = 4;
     private const MAX_ROADS = 15;
@@ -301,10 +302,9 @@ class Player
         }
 
 
-        if(empty($bank->getCards())){
+        if(empty($bank->getDeck())){
             return false;
         }
-
 
 
         return true;

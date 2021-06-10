@@ -3,7 +3,9 @@
 namespace App\Models;
 
 
-class Bank
+use Exception;
+
+class Bank implements \JsonSerializable
 {
     public const  START_VALUE = 19;
     private int $brick;
@@ -14,9 +16,9 @@ class Bank
     private string $lobby;
 
     /**
-     * @var Card[] $cards
+     * @var Card[] $deck
      */
-    private array $cards;
+    private array $deck;
 
 
     /**
@@ -27,7 +29,7 @@ class Bank
     {
         $this->brick = $this->ore = $this->lumber = $this->grain = $this->wool = self::START_VALUE;
         $this->lobby = $lobby;
-        $this->cards = $cards;
+        $this->deck = $cards;
     }
 
     /**
@@ -121,9 +123,30 @@ class Bank
     /**
      * @return Card[]
      */
-    public function getCards(): array
+    public function getDeck(): array
     {
-        return $this->cards;
+        return $this->deck;
     }
 
+    //@Todo depending on if we will use a database this function should change the heldBy of the card instead of popping the array;
+    /**
+     * @throws Exception
+     * @return Card;
+     */
+    public function buyCard(): Card
+    {
+
+        if(empty($this->deck)){
+
+            throw new Exception('The card deck is empty');
+        }
+
+        return array_pop($this->deck);
+    }
+
+
+    public function jsonSerialize()
+    {
+        // TODO: Implement jsonSerialize() method.
+    }
 }
