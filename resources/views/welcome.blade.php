@@ -42,7 +42,7 @@
     </form>
     <form id="msg_form">
         <input type="text" name="message" id="message_in"
-        placeholder="what's up?"/>
+               placeholder="what's up?"/>
         <button type="submit" id="message_send">Send it!</button>
     </form>
 
@@ -57,10 +57,13 @@
             <h3 class="otherPlayerName">playername</h3>
             <img class="avatar" src="/assets/avatar.png" alt="avatar">
         </div>
-</div>
+    </div>
     <button id="start" type="button" class="btn-start btn-primary">Start game</button>
 </div>
 
+<form id="die">
+    <button type="submit" id="cast_die">Roll the dice</button>
+</form>
 
 <div class="hexagonGrid">
     <div class="firstRow">

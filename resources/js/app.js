@@ -1,8 +1,11 @@
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/
-/******/
-/******/ })()
+(() => { // webpackBootstrap
+    /******/
+    "use strict";
+    /******/
+    /******/
+    /******/
+})()
 ;
 require('./bootstrap');
 
@@ -12,20 +15,20 @@ const message_in = document.getElementById("message_in");
 const msg_form = document.getElementById("msg_form");
 
 
-msg_form.addEventListener('submit', function (e){
+msg_form.addEventListener('submit', function (e) {
     e.preventDefault();
 
     let has_errors = false;
 
-    if (uname.value === ''){
+    if (uname.value === '') {
         alert('enter a username');
         has_errors = true;
     }
-    if (message_in.value === ''){
+    if (message_in.value === '') {
         alert('enter a msg');
         has_errors = true;
     }
-    if (has_errors){
+    if (has_errors) {
         return;
     }
     const options = {
@@ -41,9 +44,9 @@ msg_form.addEventListener('submit', function (e){
 });
 
 window.Echo.channel('Lobby')
-    .listen('.chatmsg', (data)=>{
+    .listen('.chatmsg', (data) => {
         console.log(data);
-        messages_el.innerHTML += data.username +" "+ data.msg;
+        messages_el.innerHTML += data.username + " " + data.msg;
     });
 
 
@@ -89,3 +92,24 @@ startGame.addEventListener('click', () => {
     hexagons.style.display = 'flex';
     hexagons.classList.toggle('visible');
 });
+
+let diceBtn = document.getElementById("die");
+
+diceBtn.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const options = {
+        method: 'post',
+        url: '/rollDice',
+        data: {
+            username: uname.value,
+        }
+    }
+    axios(options)
+})
+
+window.Echo.channel('Game')
+    .listen('.roll', (data) => {
+        console.log(data);
+        console.log(`${data.player} rolled a ${data.roll.totalRoll} (${data.roll.firstRoll} + ${data.roll.secondRoll})`);
+    });

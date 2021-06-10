@@ -22,3 +22,4 @@ Route::get('/', function () {
 Route::get('game', [GameController::class, 'show']);
 
 Route::post('/send-message', [ChatController::class,'showChat']);
+Route::post('/rollDice', [GameController::class, 'rollDice']);
