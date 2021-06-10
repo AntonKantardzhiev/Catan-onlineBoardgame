@@ -3,10 +3,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
-
-use JetBrains\PhpStorm\Pure;
-
-class Tile
+class Tile implements \JsonSerializable
 {
 
     /** @var Node[] */
@@ -98,7 +95,7 @@ class Tile
      * @param Tile $secondTile
      * @return int
      */
-    #[Pure] public static function getDistance(Tile $firstTile, Tile $secondTile): int
+    public static function getDistance(Tile $firstTile, Tile $secondTile): int
     {
         $dx = abs($firstTile->getX() - $secondTile->getX());
         $dy = abs($firstTile->getY() - $secondTile->getY());
@@ -110,10 +107,18 @@ class Tile
      * @param Tile $tile
      * @return int
      */
-    #[Pure] public function getDistanceFrom(Tile $tile) : int
+    public function getDistanceFrom(Tile $tile) : int
     {
         return self::getDistance($this, $tile);
     }
 
 
+    public function jsonSerialize()
+    {
+        // TODO: Implement jsonSerialize() method.
+        return [
+            'x' =>$this->getX(),
+            'y'=> $this->getY(),
+            ];
+    }
 }
