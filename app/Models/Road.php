@@ -2,32 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Road extends Model
+class Road
 {
-    use HasFactory;
-
     private Node $fromNode;
     private Node $toNode;
-    private bool $isPlaced;
+    private Player $owner;
 
-    /**
-     * Road constructor.
-     * @param bool $isPlaced
-     */
-    public function __construct(bool $isPlaced)
-    {
-        $this->isPlaced = $isPlaced;
-    }
 
-    /**
-     * @return bool
-     */
-    public function isAvailable(): bool
+    public function __construct(Player $owner, Node $fromNode, Node $toNode)
     {
-        return $this->isPlaced;
+        $this->owner = $owner;
+        $this->fromNode = $fromNode;
+        $this->toNode = $toNode;
     }
 
     /**
@@ -46,7 +33,11 @@ class Road extends Model
         return $this->toNode;
     }
 
-
-
-
+    /**
+     * @return Player
+     */
+    public function getOwner(): Player
+    {
+        return $this->owner;
+    }
 }
